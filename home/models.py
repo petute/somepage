@@ -28,13 +28,33 @@ class _S_AboutBlock(blocks.StructBlock):
         GraphQLImage('picture'),
     ]
 
-#Block to display the projects I was involve in
+
+#Block to display a single project
+
+class _S_Projects_ProjectBlock(blocks.StructBlock):
+    description = blocks.RichTextBlock()
+    gallery = StreamField([
+        ('screenshot', _S_Projects_Project_ImageBlock())
+    ])
+
+    graphql_fields = [
+        GraphQLString('description'),
+        GraphQLStreamfield('gallery'),
+    ]
+
+#Block to display the projects
 
 class _S_ProjectsBlock(blocks.StructBlock):
     title = blocks.CharBlock()
     projects = StreamField([
-        ('project', _S_Projects_PorjectBlock()),
+        ('project', _S_Projects_ProjectBlock()),
     ])
+
+    graphql_fields = [
+        GraphQLString('title'),
+        GraphQLStreamfield('projects'),
+    ]
+
 
 class HomePage(Page):
     pass
