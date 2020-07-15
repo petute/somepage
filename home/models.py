@@ -17,6 +17,7 @@ from grapple.models import (
 #Block to display a short introduction of myself
 
 class _S_AboutBlock(blocks.StructBlock):
+    title = blocks.CharBlock()
     name = blocks.CharBlock()
     description = blocks.RichTextBlock()
     picture = ImageChooserBlock()
@@ -27,6 +28,13 @@ class _S_AboutBlock(blocks.StructBlock):
         GraphQLImage('picture'),
     ]
 
+#Block to display the projects I was involve in
+
+class _S_ProjectsBlock(blocks.StructBlock):
+    title = blocks.CharBlock()
+    projects = StreamField([
+        ('project', _S_Projects_PorjectBlock()),
+    ])
 
 class HomePage(Page):
     pass
