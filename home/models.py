@@ -15,6 +15,7 @@ from grapple.models import (
 #>Sections
 
 #Block to display a short introduction of myself
+@register_streamfield_block
 class _S_AboutBlock(blocks.StructBlock):
     title = blocks.CharBlock()
     name = blocks.CharBlock()
@@ -29,6 +30,7 @@ class _S_AboutBlock(blocks.StructBlock):
     ]
 
 #Block to display screenshots of each project
+@register_streamfield_block
 class _S_Projects_Project_ImageBlock(blocks.StructBlock):
     screenshot = ImageChooserBlock()
 
@@ -38,6 +40,7 @@ class _S_Projects_Project_ImageBlock(blocks.StructBlock):
 
 
 #Block to display a single project
+@register_streamfield_block
 class _S_Projects_ProjectBlock(blocks.StructBlock):
     title = blocks.CharBlock()
     description = blocks.RichTextBlock()
@@ -52,6 +55,7 @@ class _S_Projects_ProjectBlock(blocks.StructBlock):
     ]
 
 #Block to display the projects
+@register_streamfield_block
 class _S_ProjectsBlock(blocks.StructBlock):
     title = blocks.CharBlock()
     projects = blocks.StreamBlock([
