@@ -12,10 +12,9 @@ from grapple.models import (
     GraphQLString,
 )
 
-#Sections
+#>Sections
 
 #Block to display a short introduction of myself
-
 class _S_AboutBlock(blocks.StructBlock):
     title = blocks.CharBlock()
     name = blocks.CharBlock()
@@ -23,13 +22,13 @@ class _S_AboutBlock(blocks.StructBlock):
     picture = ImageChooserBlock()
 
     graphql_fields = [
+        GraphQLString('title'),
         GraphQLString('name'),
         GraphQLString('description'),
         GraphQLImage('picture'),
     ]
 
 #Block to display screenshots of each project
-
 class _S_Projects_Project_ImageBlock(blocks.StructBlock):
     screenshot = ImageChooserBlock()
 
@@ -39,23 +38,23 @@ class _S_Projects_Project_ImageBlock(blocks.StructBlock):
 
 
 #Block to display a single project
-
 class _S_Projects_ProjectBlock(blocks.StructBlock):
+    title = blocks.CharBlock()
     description = blocks.RichTextBlock()
-    gallery = StreamField([
+    gallery = blocks.StreamBlock([
         ('screenshot', _S_Projects_Project_ImageBlock())
     ])
 
     graphql_fields = [
+        GraphQLString('title'),
         GraphQLString('description'),
         GraphQLStreamfield('gallery'),
     ]
 
 #Block to display the projects
-
 class _S_ProjectsBlock(blocks.StructBlock):
     title = blocks.CharBlock()
-    projects = StreamField([
+    projects = blocks.StreamBlock([
         ('project', _S_Projects_ProjectBlock()),
     ])
 
@@ -64,6 +63,16 @@ class _S_ProjectsBlock(blocks.StructBlock):
         GraphQLStreamfield('projects'),
     ]
 
-
 class HomePage(Page):
-    pass
+    sections = StreamField([
+        ("about", _S_AboutBlock(null=True, blank=False)),
+        ("projects", _S_ProjectsBlock(null=True, blank=False)),
+    ], null=True, blank=False)
+
+    content_panels = Page.content_panels + [
+        StreamFieldPanel('sections'),
+    ]
+    
+    graphql_fields = [
+        GraphQLStreamfield("sections"),
+    ]
