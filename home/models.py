@@ -28,6 +28,15 @@ class _S_AboutBlock(blocks.StructBlock):
         GraphQLImage('picture'),
     ]
 
+#Block to display screenshots of each project
+
+class _S_Projects_Project_ImageBlock(blocks.StructBlock):
+    screenshot = ImageChooserBlock()
+
+    graphql_fields = [
+        GraphQLImage('screenshot'),
+    ]
+
 
 #Block to display a single project
 
