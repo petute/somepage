@@ -1,0 +1,12 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+<div class="About">
+    <h1>{{ value.title }}</h1>
+    <h2>{{ value.name }}</h2>
+    <p>{{ value.description }}</p>
+    {% image value.picture fill-800x600 %}
+</div>
+
+{% endblock content %}

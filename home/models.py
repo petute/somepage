@@ -29,6 +29,9 @@ class _S_AboutBlock(blocks.StructBlock):
         GraphQLImage('picture'),
     ]
 
+    class Meta:
+        template = 'home/blocks/_S_About.html'
+
 #Block to display screenshots of each project
 @register_streamfield_block
 class _S_Projects_Project_ImageBlock(blocks.StructBlock):
@@ -37,6 +40,9 @@ class _S_Projects_Project_ImageBlock(blocks.StructBlock):
     graphql_fields = [
         GraphQLImage('screenshot'),
     ]
+
+    class Meta:
+        template = 'home/blocks/_S_Projects_Project_Image.html'
 
 
 #Block to display a single project
@@ -54,6 +60,9 @@ class _S_Projects_ProjectBlock(blocks.StructBlock):
         GraphQLStreamfield('gallery'),
     ]
 
+    class Meta:
+        template = 'home/blocks/_S_Projects_Project.html'
+
 #Block to display the projects
 @register_streamfield_block
 class _S_ProjectsBlock(blocks.StructBlock):
@@ -66,6 +75,9 @@ class _S_ProjectsBlock(blocks.StructBlock):
         GraphQLString('title'),
         GraphQLStreamfield('projects'),
     ]
+
+    class Meta:
+        template = 'home/blocks/_S_Projects.html'
 
 class HomePage(Page):
     sections = StreamField([

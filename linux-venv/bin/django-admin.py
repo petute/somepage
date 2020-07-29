@@ -1,4 +1,4 @@
-#!/home/moots/Python/Django/somepage/linux-venv/bin/python
+#!/home/moots/Python/Django/portfolio-wagtail/linux-venv/bin/python
 from django.core import management
 
 if __name__ == "__main__":
