@@ -4,7 +4,7 @@ asgiref==1.1.2
 attrs==19.3.0
 autobahn==20.7.1
 Automat==20.2.0
-beautifulsoup4==4.6.0
+beautifulsoup4==4.8.0
 certifi==2020.6.20
 cffi==1.14.1
 channels==1.1.8
@@ -44,7 +44,7 @@ Twisted==20.3.0
 txaio==20.4.1
 Unidecode==1.1.1
 urllib3==1.25.10
-wagtail==2.9.3
+wagtail==2.8.2
 wagtail-grapple==0.5.1
 wagtail-headless-preview==0.1.4
 webencodings==0.5.1
