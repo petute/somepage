@@ -2,3 +2,7 @@
 
 linux-venv/
 windows-venv/
+
+#Database
+
+db.sqlite3/
