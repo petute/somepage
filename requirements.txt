@@ -10,7 +10,7 @@ cffi==1.14.1
 channels==1.1.8
 chardet==3.0.4
 constantly==15.1.0
-cryptography==3.0
+cryptography==3.2
 daphne==1.4.2
 Django==2.2.14
 django-modelcluster==5.0.2
@@ -29,7 +29,7 @@ idna==2.10
 incremental==17.5.0
 l18n==2018.5
 msgpack-python==0.5.6
-Pillow==6.2.2
+Pillow==7.1.0
 promise==2.3
 pycparser==2.20
 PyHamcrest==2.0.2
@@ -44,7 +44,7 @@ Twisted==20.3.0
 txaio==20.4.1
 Unidecode==1.1.1
 urllib3==1.25.10
-wagtail==2.8.2
+wagtail==2.9.3
 wagtail-grapple==0.5.1
 wagtail-headless-preview==0.1.4
 webencodings==0.5.1
