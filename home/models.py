@@ -88,6 +88,7 @@ class _S_ProjectsBlock(blocks.StructBlock):
     class Meta:
         template = 'home/blocks/_S_Projects.html'
 
+#Block to display the footer
 @register_streamfield_block
 class _S_FooterBlock(blocks.StructBlock):
     name = blocks.CharBlock()
@@ -97,6 +98,9 @@ class _S_FooterBlock(blocks.StructBlock):
         GraphQLString('name'),
         GraphQLString('contact'),
     ]
+
+    class Meta:
+        template = 'home/blocks/_S_Footer.html'
 
 #>Forms
 class FormField(AbstractFormField):
