@@ -88,6 +88,16 @@ class _S_ProjectsBlock(blocks.StructBlock):
     class Meta:
         template = 'home/blocks/_S_Projects.html'
 
+@register_streamfield_block
+class _S_FooterBlock(blocks.StructBlock):
+    name = blocks.CharBlock()
+    contact = blocks.CharBlock()
+
+    graphql_fields = [
+        GraphQLString('name'),
+        GraphQLString('contact'),
+    ]
+
 #>Forms
 class FormField(AbstractFormField):
     page = ParentalKey('FormPage', related_name='custom_form_fields')
@@ -115,6 +125,7 @@ class HomePage(Page):
     sections = StreamField([
         ("about", _S_AboutBlock(null=True, blank=False)),
         ("projects", _S_ProjectsBlock(null=True, blank=False)),
+        ("footer", _S_FooterBlock(null=True, blank=False)),
     ], null=True, blank=False)
 
     content_panels = Page.content_panels + [
